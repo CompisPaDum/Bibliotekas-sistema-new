@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace Bibliotekas_sistema_new
 {
-    public partial class Start : Form
+    public partial class Login : Form
     {
-        public Start()
+        public Login()
         {
             InitializeComponent();
-            this.Location = new Point(400, 200);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Login login = new Login();
-            login.Show();
-            Visible = false;
         }
     }
 }
