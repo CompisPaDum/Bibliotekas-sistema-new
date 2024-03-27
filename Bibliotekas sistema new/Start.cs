@@ -22,7 +22,7 @@ namespace Bibliotekas_sistema_new
         {
             Login login = new Login();
             login.Show();
-            Visible = false;
+            this.Hide();
         }
     }
 }
