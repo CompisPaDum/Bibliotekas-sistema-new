@@ -17,5 +17,12 @@ namespace Bibliotekas_sistema_new
             InitializeComponent();
             this.Location = new Point(400, 200);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Start start = new Start();
+            start.Show();
+            this.Hide();
+        }
     }
 }
