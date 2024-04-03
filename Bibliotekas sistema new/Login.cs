@@ -24,5 +24,18 @@ namespace Bibliotekas_sistema_new
             start.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            /* if(textBox1.Text == name && textBox2.Text == password)
+             * {
+             *      load next page
+             * }
+             * else
+             * {
+             *      name or password is incorrect
+             * }
+             */
+        }
     }
 }
