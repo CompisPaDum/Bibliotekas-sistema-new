@@ -24,5 +24,30 @@ namespace Bibliotekas_sistema_new
             login.Show();
             this.Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //load gramatas
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //load lasitaji
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //load izsniegtas gramatas
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //load autori
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //load lietotaji
+        }
     }
 }
