@@ -47,7 +47,9 @@ namespace Bibliotekas_sistema_new
                     {
                         if(reader["isAdmin"].ToString().Equals("True"))
                         {
-                            //load admin page
+                            MainPage mainpage = new MainPage();
+                            mainpage.Show();
+                            this.Hide();
                         }
                         else
                         {

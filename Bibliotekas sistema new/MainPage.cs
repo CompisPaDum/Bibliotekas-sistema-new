@@ -15,6 +15,14 @@ namespace Bibliotekas_sistema_new
         public MainPage()
         {
             InitializeComponent();
+            this.Location = new Point(400, 200);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
         }
     }
 }

@@ -34,14 +34,14 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Garamond", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(247, 76);
+            this.label1.Location = new System.Drawing.Point(273, 80);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(312, 60);
             this.label1.TabIndex = 1;
@@ -50,7 +50,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.button1.Location = new System.Drawing.Point(257, 168);
+            this.button1.Location = new System.Drawing.Point(283, 172);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(127, 65);
             this.button1.TabIndex = 2;
@@ -60,7 +60,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.button2.Location = new System.Drawing.Point(408, 168);
+            this.button2.Location = new System.Drawing.Point(434, 172);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(127, 65);
             this.button2.TabIndex = 3;
@@ -70,7 +70,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.button3.Location = new System.Drawing.Point(257, 257);
+            this.button3.Location = new System.Drawing.Point(283, 261);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(127, 65);
             this.button3.TabIndex = 4;
@@ -80,7 +80,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.button4.Location = new System.Drawing.Point(408, 257);
+            this.button4.Location = new System.Drawing.Point(434, 261);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(127, 65);
             this.button4.TabIndex = 5;
@@ -90,28 +90,29 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.button5.Location = new System.Drawing.Point(334, 342);
+            this.button5.Location = new System.Drawing.Point(360, 346);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(127, 65);
             this.button5.TabIndex = 5;
             this.button5.Text = "Sistēmas lietotāji";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // button6
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "poga atpakaļ";
+            this.button6.Image = global::Bibliotekas_sistema_new.Properties.Resources.back1;
+            this.button6.Location = new System.Drawing.Point(12, 12);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(82, 79);
+            this.button6.TabIndex = 7;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(854, 502);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -119,6 +120,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "MainPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "MainPage";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -133,6 +135,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button6;
     }
 }
