@@ -33,18 +33,42 @@ namespace Bibliotekas_sistema_new
             SqlConnection SqlCon = new SqlConnection(ConnectionString);
             SqlCommand SqlCom = new SqlCommand();
 
-            string SqlSearchName = "SELECT name FROM Lietotaji WHERE (name LIKE " + textBox1.Text + ")";
-            string SqlSearchSurname = "SELECT surname FROM Lietotaji Where (surname LIKE " + textBox2.Text + ")";
+            string SqlSearchLietotajs = "SELECT isAdmin FROM Lietotaji WHERE login = \'" + textBox1.Text + "\' AND password = \'" + textBox2.Text + "\';";
 
-            /* if(textBox1.Text == name && textBox2.Text == password)
-             * {
-             *      load next page
-             * }
-             * else
-             * {
-             *      name or password is incorrect
-             * }
-             */
+            try
+            {
+                SqlCon.Open();
+                SqlCom.Connection = SqlCon;
+                SqlCom.CommandText = SqlSearchLietotajs;
+                SqlDataReader reader = SqlCom.ExecuteReader();
+                if(reader.HasRows)
+                {
+                    while(reader.Read())
+                    {
+                        if(reader["isAdmin"].ToString().Equals("True"))
+                        {
+                            //load admin page
+                        }
+                        else
+                        {
+                            //load normal page
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vārds vai uzvārds ir nepareizs.", "Kļūda");
+                }
+                reader.Close();
+                SqlCon.Close();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                try {
+                    SqlCon.Close();
+                } catch { }
+            }
         }
 
         private void Login_Load(object sender, EventArgs e)
