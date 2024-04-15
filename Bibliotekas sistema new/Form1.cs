@@ -75,6 +75,8 @@ namespace Bibliotekas_sistema_new
             SqlConnection SqlCon = new SqlConnection(ConnectionString);
             SqlCommand SqlCom = new SqlCommand();
 
+            try
+            {
                 string SqlLietotaji = "SELECT * FROM Lietotaji";
                 SqlDataAdapter DataAdapterLietotaji = new SqlDataAdapter(SqlLietotaji, SqlCon);
                 DataSet DsLietotaji = new DataSet();
