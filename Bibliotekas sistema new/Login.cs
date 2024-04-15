@@ -59,7 +59,7 @@ namespace Bibliotekas_sistema_new
                 }
                 else
                 {
-                    MessageBox.Show("Vārds vai uzvārds ir nepareizs.", "Kļūda");
+                    MessageBox.Show("Lietotājvārds vai parole ir nepareiza.", "Kļūda");
                 }
                 reader.Close();
                 SqlCon.Close();
