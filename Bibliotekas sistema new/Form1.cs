@@ -32,7 +32,7 @@ namespace Bibliotekas_sistema_new
                 "password varchar(25) NOT NULL, " +
                 "isAdmin bit NOT NULL);";
             const string SqlStrFillLietotaji = "INSERT INTO Lietotaji (name, surname, login, password, isAdmin) VALUES" +
-                "('Marks', 'Logins', 'compispadum', 'password1', '0'), " +
+                "('Marks', 'Logins', 'compispadum', 'password1', '1'), " +
                 "('Ilja', 'Trofimovs', 'ilya', 'password2', '0');";
 
             try
@@ -70,8 +70,8 @@ namespace Bibliotekas_sistema_new
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = D:\Marks\Downloads\Bibliotekas sistema\Bibliotekas sistema new\Database1.mdf; Integrated Security = True";
-            ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=\\ri.riga.lv\rv1g\Audzekni\mlogins2\My Documents\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+            ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = D:\Marks\Downloads\Bibliotekas sistema\Bibliotekas sistema new\Database1.mdf; Integrated Security = True";
+            //ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=\\ri.riga.lv\rv1g\Audzekni\mlogins2\My Documents\Database1.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection SqlCon = new SqlConnection(ConnectionString);
             SqlCommand SqlCom = new SqlCommand();
 
