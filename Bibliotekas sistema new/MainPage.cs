@@ -47,7 +47,9 @@ namespace Bibliotekas_sistema_new
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //load lietotaji
+            Lietotaji lietotaji = new Lietotaji();
+            lietotaji.Show();
+            this.Hide();
         }
     }
 }
