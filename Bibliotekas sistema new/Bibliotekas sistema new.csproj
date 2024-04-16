@@ -63,11 +63,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IzsniegtasGramatas.cs">
+    <Compile Include="Gramatas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IzsniegtasGramatas.Designer.cs">
-      <DependentUpon>IzsniegtasGramatas.cs</DependentUpon>
+    <Compile Include="Gramatas.Designer.cs">
+      <DependentUpon>Gramatas.cs</DependentUpon>
     </Compile>
     <Compile Include="BibliotekasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -117,8 +117,8 @@
     <Compile Include="TableView.Designer.cs">
       <DependentUpon>TableView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="IzsniegtasGramatas.resx">
-      <DependentUpon>IzsniegtasGramatas.cs</DependentUpon>
+    <EmbeddedResource Include="Gramatas.resx">
+      <DependentUpon>Gramatas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
