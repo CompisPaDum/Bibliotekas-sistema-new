@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Bibliotekas_sistema_new
 {
-    public partial class Lietotaji : Form
+    public partial class Autori : Form
     {
-        public Lietotaji()
+        public Autori()
         {
             InitializeComponent();
             this.Location = new Point(400, 200);
@@ -28,7 +28,7 @@ namespace Bibliotekas_sistema_new
             this.Hide();
         }
 
-        private void Lietotaji_Load(object sender, EventArgs e)
+        private void Autori_Load(object sender, EventArgs e)
         {
             ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\ilya0\source\repos\Bibliotekas sistema new\Bibliotekas sistema new\Database1.mdf; Integrated Security = True";
             SqlConnection SqlCon = new SqlConnection(ConnectionString);
@@ -36,28 +36,26 @@ namespace Bibliotekas_sistema_new
 
             try
             {
-                string SqlLietotaji = "SELECT * FROM Lietotaji";
-                SqlDataAdapter DataAdapterLietotaji = new SqlDataAdapter(SqlLietotaji, SqlCon);
-                DataSet DsLietotaji = new DataSet();
+                string SqlAutorii = "SELECT * FROM Autori";
+                SqlDataAdapter DataAdapterAutori = new SqlDataAdapter(SqlAutorii, SqlCon);
+                DataSet DsAutori = new DataSet();
                 SqlCon.Open();
-                DataAdapterLietotaji.Fill(DsLietotaji);
+                DataAdapterAutori.Fill(DsAutori);
                 SqlCon.Close();
 
-                BindingSource BsLietotaji;
-                BsLietotaji = new BindingSource();
-                BsLietotaji.DataSource = DsLietotaji.Tables[0].DefaultView;
+                BindingSource BsAutori;
+                BsAutori = new BindingSource();
+                BsAutori.DataSource = DsAutori.Tables[0].DefaultView;
                 //bindingNavigator1.BindingSource = BsLietotaji;
-                dataGridView1.DataSource = BsLietotaji;
+                dataGridView1.DataSource = BsAutori;
 
-                dataGridView1.Columns["name"].Width = 155;
+                dataGridView1.Columns["author_ID"].Width = 190;
+                dataGridView1.Columns["author_ID"].HeaderText = "Autora ID";
+                dataGridView1.Columns["name"].Width = 190;
                 dataGridView1.Columns["name"].HeaderText = "Vārds";
-                dataGridView1.Columns["surname"].Width = 155;
+                dataGridView1.Columns["surname"].Width = 190;
                 dataGridView1.Columns["surname"].HeaderText = "Uzvārds";
-                dataGridView1.Columns["login"].Width = 155;
-                dataGridView1.Columns["login"].HeaderText = "Lietotājvārds";
-                dataGridView1.Columns["password"].Width = 155;
-                dataGridView1.Columns["password"].HeaderText = "Parole";
-                dataGridView1.Columns["isAdmin"].HeaderText = "Administrators";
+                dataGridView1.Columns["info"].HeaderText = "Info par autoru";
             }
             catch { }
         }
