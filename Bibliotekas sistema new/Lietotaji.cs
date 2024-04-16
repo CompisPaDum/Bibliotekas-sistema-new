@@ -48,6 +48,16 @@ namespace Bibliotekas_sistema_new
                 BsLietotaji.DataSource = DsLietotaji.Tables[0].DefaultView;
                 //bindingNavigator1.BindingSource = BsLietotaji;
                 dataGridView1.DataSource = BsLietotaji;
+
+                dataGridView1.Columns["name"].Width = 155;
+                dataGridView1.Columns["name"].HeaderText = "Vārds";
+                dataGridView1.Columns["surname"].Width = 155;
+                dataGridView1.Columns["surname"].HeaderText = "Uzvārds";
+                dataGridView1.Columns["login"].Width = 155;
+                dataGridView1.Columns["login"].HeaderText = "Lietotājvārds";
+                dataGridView1.Columns["password"].Width = 155;
+                dataGridView1.Columns["password"].HeaderText = "Parole";
+                dataGridView1.Columns["isAdmin"].HeaderText = "Administrators";
             }
             catch { }
         }
