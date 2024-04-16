@@ -78,7 +78,15 @@ namespace Bibliotekas_sistema_new
             ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = D:\Marks\Downloads\Bibliotekas sistema\Bibliotekas sistema new\Database1.mdf; Integrated Security = True";
             SqlConnection SqlCon = new SqlConnection(ConnectionString);
             SqlCommand SqlCom = new SqlCommand();
+        }
 
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyData == Keys.Enter) //&& this.Visible == true)
+            {
+                MessageBox.Show("s");
+                //button2.PerformClick();
+            }
         }
     }
 }
