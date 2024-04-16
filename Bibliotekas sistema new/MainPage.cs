@@ -42,7 +42,7 @@ namespace Bibliotekas_sistema_new
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Autori autori = new Autori();
+            IzsniegtasGramatas autori = new IzsniegtasGramatas();
             autori.Show();
             this.Hide();
         }

@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Bibliotekas_sistema_new
 {
-    public partial class Autori : Form
+    public partial class IzsniegtasGramatas : Form
     {
-        public Autori()
+        public IzsniegtasGramatas()
         {
             InitializeComponent();
             this.Location = new Point(400, 200);
@@ -36,6 +36,9 @@ namespace Bibliotekas_sistema_new
 
             try
             {
+                // !
+                // TABULA => Izsniegtas_gramatas (vai tām līdzīgs) ((NEVIS Autori))
+
                 string SqlAutori = "SELECT * FROM Autori";
                 SqlDataAdapter DataAdapterAutori = new SqlDataAdapter(SqlAutori, SqlCon);
                 DataSet DsAutori = new DataSet();
@@ -49,13 +52,15 @@ namespace Bibliotekas_sistema_new
                 //bindingNavigator1.BindingSource = BsLietotaji;
                 dataGridView1.DataSource = BsAutori;
 
-                dataGridView1.Columns["author_ID"].Width = 190;
-                dataGridView1.Columns["author_ID"].HeaderText = "Autora ID";
-                dataGridView1.Columns["name"].Width = 190;
-                dataGridView1.Columns["name"].HeaderText = "Vārds";
-                dataGridView1.Columns["surname"].Width = 190;
-                dataGridView1.Columns["surname"].HeaderText = "Uzvārds";
-                dataGridView1.Columns["info"].HeaderText = "Info par autoru";
+                dataGridView1.Columns["book_ID"].Width = 155;
+                dataGridView1.Columns["book_ID"].HeaderText = "Grāmatas ID";
+                dataGridView1.Columns["holder_ID"].Width = 155;
+                dataGridView1.Columns["holder_ID"].HeaderText = "Lasītāja ID";
+                dataGridView1.Columns["worker_login"].Width = 155;
+                dataGridView1.Columns["worker_login"].HeaderText = "Bibliotekāra ID";
+                dataGridView1.Columns["takingDate"].Width = 155;
+                dataGridView1.Columns["takingDate"].HeaderText = "Paņemšanas datums";
+                dataGridView1.Columns["returningDate"].HeaderText = "Atgriešanas datums";
             }
             catch { }
         }
