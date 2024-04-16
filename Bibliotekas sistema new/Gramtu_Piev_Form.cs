@@ -15,6 +15,7 @@ namespace Bibliotekas_sistema_new
         public Gramtu_Piev_Form()
         {
             InitializeComponent();
+            this.Location = new Point(400, 200);
         }
     }
 }
