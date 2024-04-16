@@ -85,6 +85,12 @@
     <Compile Include="Lietotaji.Designer.cs">
       <DependentUpon>Lietotaji.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lietotaji_tabula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lietotaji_tabula.Designer.cs">
+      <DependentUpon>Lietotaji_tabula.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Lietotaji.resx">
       <DependentUpon>Lietotaji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lietotaji_tabula.resx">
+      <DependentUpon>Lietotaji_tabula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
