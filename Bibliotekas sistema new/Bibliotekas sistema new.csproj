@@ -63,11 +63,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Autori.cs">
+    <Compile Include="Lasitaji.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Autori.Designer.cs">
-      <DependentUpon>Autori.cs</DependentUpon>
+    <Compile Include="Lasitaji.Designer.cs">
+      <DependentUpon>Lasitaji.cs</DependentUpon>
     </Compile>
     <Compile Include="BibliotekasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -117,8 +117,8 @@
     <Compile Include="TableView.Designer.cs">
       <DependentUpon>TableView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Autori.resx">
-      <DependentUpon>Autori.cs</DependentUpon>
+    <EmbeddedResource Include="Lasitaji.resx">
+      <DependentUpon>Lasitaji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

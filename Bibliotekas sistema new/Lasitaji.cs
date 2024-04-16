@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Bibliotekas_sistema_new
 {
-    public partial class Autori : Form
+    public partial class Lasitaji : Form
     {
-        public Autori()
+        public Lasitaji()
         {
             InitializeComponent();
             this.Location = new Point(400, 200);
@@ -36,26 +36,26 @@ namespace Bibliotekas_sistema_new
 
             try
             {
-                string SqlAutorii = "SELECT * FROM Autori";
-                SqlDataAdapter DataAdapterAutori = new SqlDataAdapter(SqlAutorii, SqlCon);
-                DataSet DsAutori = new DataSet();
+                string SqlLasitaji = "SELECT * FROM Lasitaji";
+                SqlDataAdapter DataAdapterLasitaji = new SqlDataAdapter(SqlLasitaji, SqlCon);
+                DataSet DsLasitaji = new DataSet();
                 SqlCon.Open();
-                DataAdapterAutori.Fill(DsAutori);
+                DataAdapterLasitaji.Fill(DsLasitaji);
                 SqlCon.Close();
 
-                BindingSource BsAutori;
-                BsAutori = new BindingSource();
-                BsAutori.DataSource = DsAutori.Tables[0].DefaultView;
+                BindingSource BsLasitaji;
+                BsLasitaji = new BindingSource();
+                BsLasitaji.DataSource = DsLasitaji.Tables[0].DefaultView;
                 //bindingNavigator1.BindingSource = BsLietotaji;
-                dataGridView1.DataSource = BsAutori;
+                dataGridView1.DataSource = BsLasitaji;
 
-                dataGridView1.Columns["author_ID"].Width = 190;
-                dataGridView1.Columns["author_ID"].HeaderText = "Autora ID";
+                dataGridView1.Columns["client_ID"].Width = 190;
+                dataGridView1.Columns["client_ID"].HeaderText = "Lasītāja ID";
                 dataGridView1.Columns["name"].Width = 190;
                 dataGridView1.Columns["name"].HeaderText = "Vārds";
                 dataGridView1.Columns["surname"].Width = 190;
                 dataGridView1.Columns["surname"].HeaderText = "Uzvārds";
-                dataGridView1.Columns["info"].HeaderText = "Info par autoru";
+                dataGridView1.Columns["registrationDate"].HeaderText = "Reģistrēšanas datums";
             }
             catch { }
         }
