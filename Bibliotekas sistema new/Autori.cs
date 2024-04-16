@@ -36,8 +36,8 @@ namespace Bibliotekas_sistema_new
 
             try
             {
-                string SqlAutorii = "SELECT * FROM Autori";
-                SqlDataAdapter DataAdapterAutori = new SqlDataAdapter(SqlAutorii, SqlCon);
+                string SqlAutori = "SELECT * FROM Autori";
+                SqlDataAdapter DataAdapterAutori = new SqlDataAdapter(SqlAutori, SqlCon);
                 DataSet DsAutori = new DataSet();
                 SqlCon.Open();
                 DataAdapterAutori.Fill(DsAutori);
