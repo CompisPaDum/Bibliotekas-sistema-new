@@ -63,11 +63,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Autoru_Piev_Form.cs">
+    <Compile Include="Lasitaju_Piev_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Autoru_Piev_Form.Designer.cs">
-      <DependentUpon>Autoru_Piev_Form.cs</DependentUpon>
+    <Compile Include="Lasitaju_Piev_Form.Designer.cs">
+      <DependentUpon>Lasitaju_Piev_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="BibliotekasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -117,8 +117,8 @@
     <Compile Include="TableView.Designer.cs">
       <DependentUpon>TableView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Autoru_Piev_Form.resx">
-      <DependentUpon>Autoru_Piev_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Lasitaju_Piev_Form.resx">
+      <DependentUpon>Lasitaju_Piev_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

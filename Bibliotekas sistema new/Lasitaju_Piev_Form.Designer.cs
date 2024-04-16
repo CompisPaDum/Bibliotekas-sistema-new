@@ -1,6 +1,6 @@
 ﻿namespace Bibliotekas_sistema_new
 {
-    partial class Autoru_Piev_Form
+    partial class Lasitaju_Piev_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -43,9 +43,9 @@
             this.label1.Font = new System.Drawing.Font("Garamond", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.label1.Location = new System.Drawing.Point(128, 96);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(591, 60);
+            this.label1.Size = new System.Drawing.Size(606, 60);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Pievienot(rediģēt) autoru";
+            this.label1.Text = "Pievienot(rediģēt) lasītāju";
             // 
             // textBox2
             // 
@@ -100,7 +100,7 @@
             this.button2.Text = "Apstiprināt";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // Autoru_Piev_Form
+            // Lasitaju_Piev_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -112,7 +112,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "Autoru_Piev_Form";
+            this.Name = "Lasitaju_Piev_Form";
             this.Text = "Autoru_Piev_Form";
             this.ResumeLayout(false);
             this.PerformLayout();
