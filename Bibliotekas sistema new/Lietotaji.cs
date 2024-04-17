@@ -30,7 +30,8 @@ namespace Bibliotekas_sistema_new
 
         private void Lietotaji_Load(object sender, EventArgs e)
         {
-            ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\ilya0\source\repos\Bibliotekas sistema new\Bibliotekas sistema new\Database1.mdf; Integrated Security = True";
+            ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=\\ri.riga.lv\rv1g\Audzekni\mlogins2\My Documents\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+            //ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = D:\Marks\Downloads\Bibliotekas sistema\Bibliotekas sistema new\Database1.mdf; Integrated Security = True";
             SqlConnection SqlCon = new SqlConnection(ConnectionString);
             SqlCommand SqlCom = new SqlCommand();
 
@@ -46,7 +47,6 @@ namespace Bibliotekas_sistema_new
                 BindingSource BsLietotaji;
                 BsLietotaji = new BindingSource();
                 BsLietotaji.DataSource = DsLietotaji.Tables[0].DefaultView;
-                //bindingNavigator1.BindingSource = BsLietotaji;
                 dataGridView1.DataSource = BsLietotaji;
 
                 dataGridView1.Columns["name"].Width = 155;
@@ -60,6 +60,114 @@ namespace Bibliotekas_sistema_new
                 dataGridView1.Columns["isAdmin"].HeaderText = "Administrators";
             }
             catch { }
+        }
+
+        private void button2_Click(object sender, EventArgs e) //pievienot
+        {
+            //load Lietotaji_tabula_forma
+        }
+
+        private void button4_Click(object sender, EventArgs e) //rediģēt
+        {
+            //load Lietotaji_tabula_forma
+            //fill textboxes with seleced values
+        }
+
+        private void button5_Click(object sender, EventArgs e) //dzēst
+        {
+            SqlConnection SqlCon = new SqlConnection(ConnectionString);
+            SqlCommand SqlCom = new SqlCommand();
+
+            string SqlDeleteRecord = "DELETE FROM Lietotaji WHERE login='" + dataGridView1.CurrentRow.Cells["login"].Value.ToString() + "';";
+
+            DialogResult dialogResult = MessageBox.Show("Vai tiešām gribat dzēst šo lietotāju no datubāzes?", "Brīdinājums!", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    SqlCon.Open();
+                    SqlCom.Connection = SqlCon;
+                    SqlCom.CommandText = SqlDeleteRecord;
+                    SqlCom.ExecuteNonQuery();
+                    SqlCon.Close();
+
+                    string SqlLietotaji = "SELECT * FROM Lietotaji";
+                    SqlDataAdapter DataAdapterLietotaji = new SqlDataAdapter(SqlLietotaji, SqlCon);
+                    DataSet DsLietotaji = new DataSet();
+                    SqlCon.Open();
+                    DataAdapterLietotaji.Fill(DsLietotaji);
+                    SqlCon.Close();
+
+                    BindingSource BsLietotaji;
+                    BsLietotaji = new BindingSource();
+                    BsLietotaji.DataSource = DsLietotaji.Tables[0].DefaultView;
+                    dataGridView1.DataSource = BsLietotaji;
+                }
+                catch { }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e) //meklēt
+        {
+            SqlConnection SqlCon = new SqlConnection(ConnectionString);
+            SqlCommand SqlCom = new SqlCommand();
+
+            string selected = "";
+            switch(comboBox1.SelectedItem.ToString())
+            {
+                case "Vārds":
+                    selected = "name";
+                    break;
+                case "Uzvārds":
+                    selected = "surname";
+                    break;
+                case "Lietotājvārds":
+                    selected = "login";
+                    break;
+                case "Parole":
+                    selected = "password";
+                    break;
+                case "Administrators":
+                    selected = "isAdmin";
+                    break;
+                default:
+                    selected = "*";
+                    break;
+            }
+
+            try
+            {
+                string SqlSearchRecord = "SELECT * FROM Lietotaji WHERE " + selected + "='" + textBox1.Text + "';";
+                SqlDataAdapter DataAdapterLietotaji = new SqlDataAdapter(SqlSearchRecord, SqlCon);
+                DataSet DsLietotaji = new DataSet();
+                SqlCon.Open();
+                DataAdapterLietotaji.Fill(DsLietotaji);
+                SqlCon.Close();
+
+                BindingSource BsLietotaji;
+                BsLietotaji = new BindingSource();
+                BsLietotaji.DataSource = DsLietotaji.Tables[0].DefaultView;
+                dataGridView1.DataSource = BsLietotaji;
+            }
+            catch { }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SqlConnection SqlCon = new SqlConnection(ConnectionString);
+            SqlCommand SqlCom = new SqlCommand();
+
+            string SqlSearchRecord = "SELECT * FROM Lietotaji;";
+            SqlDataAdapter DataAdapterLietotaji = new SqlDataAdapter(SqlSearchRecord, SqlCon);
+            DataSet DsLietotaji = new DataSet();
+            SqlCon.Open();
+            DataAdapterLietotaji.Fill(DsLietotaji);
+            SqlCon.Close();
+
+            BindingSource BsLietotaji;
+            BsLietotaji = new BindingSource();
+            BsLietotaji.DataSource = DsLietotaji.Tables[0].DefaultView;
+            dataGridView1.DataSource = BsLietotaji;
         }
     }
 }
