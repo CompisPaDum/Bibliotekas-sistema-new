@@ -62,14 +62,22 @@ namespace Bibliotekas_sistema_new
             catch { }
         }
 
+        public string metode, id;
+
         private void button2_Click(object sender, EventArgs e) //pievienot
         {
-            //load Lietotaji_tabula_forma
+            metode = "pievienot";
+            Lietotaji_tabula liettabula = new Lietotaji_tabula(metode, id);
+            liettabula.Show();
+            this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e) //rediģēt
         {
-            //load Lietotaji_tabula_forma
+            id = dataGridView1.CurrentRow.Cells["login"].Value.ToString();
+            Lietotaji_tabula liettabula = new Lietotaji_tabula(metode, id);
+            liettabula.Show();
+            this.Hide();
             //fill textboxes with seleced values
         }
 

@@ -63,7 +63,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label3.Location = new System.Drawing.Point(290, 215);
+            this.label3.Location = new System.Drawing.Point(290, 287);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 24);
             this.label3.TabIndex = 16;
@@ -73,7 +73,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label2.Location = new System.Drawing.Point(296, 179);
+            this.label2.Location = new System.Drawing.Point(296, 251);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 24);
             this.label2.TabIndex = 15;
@@ -99,7 +99,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label4.Location = new System.Drawing.Point(275, 287);
+            this.label4.Location = new System.Drawing.Point(275, 215);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 24);
             this.label4.TabIndex = 20;
@@ -109,7 +109,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label5.Location = new System.Drawing.Point(296, 251);
+            this.label5.Location = new System.Drawing.Point(296, 179);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 24);
             this.label5.TabIndex = 19;
@@ -142,6 +142,7 @@
             this.button2.TabIndex = 23;
             this.button2.Text = "Apstiprināt";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Lietotaji_tabula
             // 
@@ -160,7 +161,9 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "Lietotaji_tabula";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Lietotaji_tabula";
+            this.Load += new System.EventHandler(this.Lietotaji_tabula_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
