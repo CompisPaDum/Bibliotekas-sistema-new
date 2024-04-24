@@ -50,8 +50,8 @@ namespace Bibliotekas_sistema_new
             }
             else
             {
-                MessageBox.Show(id);
                 string SqlUpdateRecord;
+
                 if (checkBox1.Checked)
                 {
 
