@@ -17,7 +17,7 @@ namespace Bibliotekas_sistema_new
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=\\ri.riga.lv\rv1g\Audzekni\mlogins2\My Documents\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+            ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\itrofimovs2\source\repos\Bibliotekas sistema new\Bibliotekas sistema new\Bibliotekas sistema new\Database1.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection SqlCon = new SqlConnection(ConnectionString);
             SqlCommand SqlCom = new SqlCommand();
 
@@ -50,7 +50,32 @@ namespace Bibliotekas_sistema_new
             }
             else
             {
+                MessageBox.Show(id);
+                string SqlUpdateRecord;
+                if (checkBox1.Checked)
+                {
 
+                    SqlUpdateRecord = "update Lietotaji set name = '" + textBox1.Text + "', surname = '" + textBox2.Text + "', login = '" + textBox4.Text + "', password = '" + textBox3.Text + "', isAdmin = 1 where login = '" + id + "';";
+                }
+                else
+                {
+                    SqlUpdateRecord = "update Lietotaji set name = '" + textBox1.Text + "', surname = '" + textBox2.Text + "', login = '" + textBox4.Text + "', password = '" + textBox3.Text + "', isAdmin = 0 where login = '" + id + "';";
+                }
+
+                try
+                {
+                    SqlCon.Open();
+                    SqlCom.Connection = SqlCon;
+                    SqlCom.CommandText = SqlUpdateRecord;
+                    SqlCom.ExecuteNonQuery();
+                    SqlCon.Close();
+                    MessageBox.Show("lietotāja izmaiņas pievienotas datubāzei.");
+                }
+                catch { }
+
+                Lietotaji lietotaji = new Lietotaji();
+                lietotaji.Show();
+                this.Hide();
             }
 
         }
@@ -65,6 +90,7 @@ namespace Bibliotekas_sistema_new
 
         private void Lietotaji_tabula_Load(object sender, EventArgs e)
         {
+            //fill form
         }
     }
 }
