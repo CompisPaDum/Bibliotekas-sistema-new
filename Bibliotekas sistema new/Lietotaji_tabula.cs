@@ -17,7 +17,6 @@ namespace Bibliotekas_sistema_new
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\itrofimovs2\source\repos\Bibliotekas sistema new\Bibliotekas sistema new\Bibliotekas sistema new\Database1.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection SqlCon = new SqlConnection(ConnectionString);
             SqlCommand SqlCom = new SqlCommand();
 
@@ -55,11 +54,11 @@ namespace Bibliotekas_sistema_new
                 if (checkBox1.Checked)
                 {
 
-                    SqlUpdateRecord = "update Lietotaji set name = '" + textBox1.Text + "', surname = '" + textBox2.Text + "', login = '" + textBox4.Text + "', password = '" + textBox3.Text + "', isAdmin = 1 where login = '" + id + "';";
+                    SqlUpdateRecord = "UPDATE Lietotaji SET name = '" + textBox1.Text + "', surname = '" + textBox2.Text + "', login = '" + textBox4.Text + "', password = '" + textBox3.Text + "', isAdmin = 1 WHERE login = '" + id + "';";
                 }
                 else
                 {
-                    SqlUpdateRecord = "update Lietotaji set name = '" + textBox1.Text + "', surname = '" + textBox2.Text + "', login = '" + textBox4.Text + "', password = '" + textBox3.Text + "', isAdmin = 0 where login = '" + id + "';";
+                    SqlUpdateRecord = "UPDATE Lietotaji SET name = '" + textBox1.Text + "', surname = '" + textBox2.Text + "', login = '" + textBox4.Text + "', password = '" + textBox3.Text + "', isAdmin = 0 WHERE login = '" + id + "';";
                 }
 
                 try
@@ -90,7 +89,84 @@ namespace Bibliotekas_sistema_new
 
         private void Lietotaji_tabula_Load(object sender, EventArgs e)
         {
-            //fill form
+            ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = D:\Marks\Downloads\Bibliotekas sistema\Bibliotekas sistema new\Database1.mdf; Integrated Security = True";
+            //ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\itrofimovs2\source\repos\Bibliotekas sistema new\Bibliotekas sistema new\Bibliotekas sistema new\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+            
+            if(metode == "rediget")
+            {
+                SqlConnection SqlCon = new SqlConnection(ConnectionString);
+                SqlCommand SqlCom = new SqlCommand();
+
+                string SqlName = "SELECT name FROM Lietotaji WHERE login = '" + id + "';";
+                string SqlSurname = "SELECT surname FROM Lietotaji WHERE login = '" + id + "';";
+                string SqlPassword = "SELECT password FROM Lietotaji WHERE login = '" + id + "';";
+                string SqlIsAdmin = "SELECT isAdmin FROM Lietotaji WHERE login = '" + id + "';";
+
+                try
+                {
+                    SqlCon.Open();
+                    SqlCom.Connection = SqlCon;
+                    SqlCom.CommandText = SqlName;
+                    SqlDataReader readerName = SqlCom.ExecuteReader();
+                    if (readerName.HasRows)
+                    {
+                        while (readerName.Read())
+                        {
+                            textBox1.Text = readerName["name"].ToString();
+                        }
+                    }
+                    readerName.Close();
+                    SqlCom.CommandText = SqlSurname;
+                    SqlDataReader readerSurname = SqlCom.ExecuteReader();
+                    if (readerSurname.HasRows)
+                    {
+                        while (readerSurname.Read())
+                        {
+                            textBox2.Text = readerSurname["surname"].ToString();
+                        }
+                    }
+                    readerSurname.Close();
+                    textBox4.Text = id;
+                    SqlCom.CommandText = SqlPassword;
+                    SqlDataReader readerPassword = SqlCom.ExecuteReader();
+                    if (readerPassword.HasRows)
+                    {
+                        while (readerPassword.Read())
+                        {
+                            textBox3.Text = readerPassword["password"].ToString();
+                        }
+                    }
+                    readerPassword.Close();
+                    SqlCom.CommandText = SqlIsAdmin;
+                    SqlDataReader readerIsAdmin = SqlCom.ExecuteReader();
+                    if (readerIsAdmin.HasRows)
+                    {
+                        while (readerIsAdmin.Read())
+                        {
+                            //textBox3.Text = readerIsAdmin["isAdmin"].ToString();
+                            if(readerIsAdmin["isAdmin"].ToString().Equals("True"))
+                            {
+                                checkBox1.Checked = true;
+                            }
+                            else
+                            {
+                                checkBox1.Checked = false;
+                            }
+                        }
+                    }
+                    readerIsAdmin.Close();
+                    SqlCon.Close();
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    try
+                    {
+                        SqlCon.Close();
+                    }
+                    catch { }
+                }
+            }
         }
     }
 }
