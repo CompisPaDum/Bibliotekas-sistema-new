@@ -42,7 +42,9 @@ namespace Bibliotekas_sistema_new
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //load autori
+            Autori autori = new Autori();
+            autori.Show();
+            this.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)
