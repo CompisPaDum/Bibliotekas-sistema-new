@@ -60,5 +60,30 @@ namespace Bibliotekas_sistema_new
             }
             catch { }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //load form_autori_piev
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //load form_autori_piev ar rediģēšanu
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //izdzēš ierakstu
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //meklē ierakstu
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //atgriež meklēšanu
+        }
     }
 }
