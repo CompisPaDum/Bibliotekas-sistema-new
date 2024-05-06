@@ -49,11 +49,11 @@ namespace Bibliotekas_sistema_new
                 BsAutori.DataSource = DsAutori.Tables[0].DefaultView;
                 dataGridView1.DataSource = BsAutori;
 
-                dataGridView1.Columns["author_ID"].Width = 190;
-                dataGridView1.Columns["author_ID"].HeaderText = "Autora ID";
-                dataGridView1.Columns["name"].Width = 190;
+                dataGridView1.Columns["author_ID"].Width = 40;
+                dataGridView1.Columns["author_ID"].HeaderText = "ID";
+                dataGridView1.Columns["name"].Width = 120;
                 dataGridView1.Columns["name"].HeaderText = "Vārds";
-                dataGridView1.Columns["surname"].Width = 190;
+                dataGridView1.Columns["surname"].Width = 120;
                 dataGridView1.Columns["surname"].HeaderText = "Uzvārds";
                 dataGridView1.Columns["info"].HeaderText = "Info par autoru";
             }
