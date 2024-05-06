@@ -70,7 +70,8 @@ namespace Bibliotekas_sistema_new
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\ilya0\source\repos\Bibliotekas sistema new\Bibliotekas sistema new\Database1.mdf; Integrated Security = True";
+            ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = D:\Marks\Downloads\Bibliotekas sistema\Bibliotekas sistema new\Database1.mdf; Integrated Security = True";
+            //ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\ilya0\source\repos\Bibliotekas sistema new\Bibliotekas sistema new\Database1.mdf; Integrated Security = True";
             //ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=\\ri.riga.lv\rv1g\Audzekni\mlogins2\My Documents\Database1.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection SqlCon = new SqlConnection(ConnectionString);
             SqlCommand SqlCom = new SqlCommand();
@@ -119,6 +120,54 @@ namespace Bibliotekas_sistema_new
 
             bindingNavigator1.BindingSource = null;
             dataGridView1.DataSource = null;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SqlConnection SqlCon = new SqlConnection(ConnectionString);
+            SqlCommand SqlCom = new SqlCommand();
+
+            const string SqlStrCreateAutori = "CREATE TABLE Autori(" +
+                "author_ID int NOT NULL PRIMARY KEY, " +
+                "name varchar(25) NOT NULL, " +
+                "surname varchar(25) NOT NULL, " +
+                "info text NOT NULL);";
+            const string SqlStrFillAutori = "INSERT INTO Autori (author_ID, name, surname, info) VALUES" +
+                "('1', 'Kārlis', 'Skalbe', 'Labs ciļvēks.'), " +
+                "('2', 'Rūdolfs', 'Blaumanis', 'Arī labs cilvēks.');";
+
+            try
+            {
+                SqlCon.Open();
+                SqlCom.Connection = SqlCon;
+                SqlCom.CommandText = SqlStrCreateAutori;
+                SqlCom.ExecuteNonQuery();
+                SqlCom.CommandText = SqlStrFillAutori;
+                SqlCom.ExecuteNonQuery();
+                MessageBox.Show("Autori table created!");
+                SqlCon.Close();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                try
+                {
+                    SqlCon.Close();
+                }
+                catch { }
+            }
+
+            string SqlAutori = "SELECT * FROM Autori";
+            SqlDataAdapter DataAdapterAutori = new SqlDataAdapter(SqlAutori, SqlCon);
+            DataSet DsAutori = new DataSet();
+            SqlCon.Open();
+            DataAdapterAutori.Fill(DsAutori);
+            SqlCon.Close();
+
+            BindingSource BsAutori;
+            BsAutori = new BindingSource();
+            BsAutori.DataSource = DsAutori.Tables[0].DefaultView;
+            dataGridView2.DataSource = BsAutori;
         }
     }
 }
