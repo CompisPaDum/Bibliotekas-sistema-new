@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Bibliotekas_sistema_new
 {
@@ -106,12 +107,59 @@ namespace Bibliotekas_sistema_new
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //meklē ierakstu
+            SqlConnection SqlCon = new SqlConnection(ConnectionString);
+            SqlCommand SqlCom = new SqlCommand();
+
+            string selected = "";
+            switch (comboBox1.SelectedItem.ToString())
+            {
+                case "ID":
+                    selected = "author_ID";
+                    break;
+                case "Vārds":
+                    selected = "name";
+                    break;
+                case "Uzvārds":
+                    selected = "surname";
+                    break;
+                default:
+                    selected = "*";
+                    break;
+            }
+
+            try
+            {
+                string SqlSearchRecord = "SELECT * FROM Autori WHERE " + selected + "='" + textBox1.Text + "';";
+                SqlDataAdapter DataAdapterAutori = new SqlDataAdapter(SqlSearchRecord, SqlCon);
+                DataSet DsAutori = new DataSet();
+                SqlCon.Open();
+                DataAdapterAutori.Fill(DsAutori);
+                SqlCon.Close();
+
+                BindingSource BsAutori;
+                BsAutori = new BindingSource();
+                BsAutori.DataSource = DsAutori.Tables[0].DefaultView;
+                dataGridView1.DataSource = BsAutori;
+            }
+            catch { }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //atgriež meklēšanu
+            SqlConnection SqlCon = new SqlConnection(ConnectionString);
+            SqlCommand SqlCom = new SqlCommand();
+
+            string SqlSearchRecord = "SELECT * FROM Autori;";
+            SqlDataAdapter DataAdapterAutori = new SqlDataAdapter(SqlSearchRecord, SqlCon);
+            DataSet DsAutori = new DataSet();
+            SqlCon.Open();
+            DataAdapterAutori.Fill(DsAutori);
+            SqlCon.Close();
+
+            BindingSource BsAutori;
+            BsAutori = new BindingSource();
+            BsAutori.DataSource = DsAutori.Tables[0].DefaultView;
+            dataGridView1.DataSource = BsAutori;
         }
     }
 }
