@@ -47,7 +47,6 @@ namespace Bibliotekas_sistema_new
                 BindingSource BsAutori;
                 BsAutori = new BindingSource();
                 BsAutori.DataSource = DsAutori.Tables[0].DefaultView;
-                //bindingNavigator1.BindingSource = BsLietotaji;
                 dataGridView1.DataSource = BsAutori;
 
                 dataGridView1.Columns["author_ID"].Width = 190;
@@ -73,7 +72,36 @@ namespace Bibliotekas_sistema_new
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //izdzēš ierakstu
+            SqlConnection SqlCon = new SqlConnection(ConnectionString);
+            SqlCommand SqlCom = new SqlCommand();
+
+            string SqlDeleteRecord = "DELETE FROM Autori WHERE author_ID='" + dataGridView1.CurrentRow.Cells["author_ID"].Value.ToString() + "';";
+
+            DialogResult dialogResult = MessageBox.Show("Vai tiešām gribat dzēst šo autoru no datubāzes?", "Brīdinājums!", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    SqlCon.Open();
+                    SqlCom.Connection = SqlCon;
+                    SqlCom.CommandText = SqlDeleteRecord;
+                    SqlCom.ExecuteNonQuery();
+                    SqlCon.Close();
+
+                    string SqlAutori = "SELECT * FROM Autori";
+                    SqlDataAdapter DataAdapterAutori = new SqlDataAdapter(SqlAutori, SqlCon);
+                    DataSet DsAutori = new DataSet();
+                    SqlCon.Open();
+                    DataAdapterAutori.Fill(DsAutori);
+                    SqlCon.Close();
+
+                    BindingSource BsAutori;
+                    BsAutori = new BindingSource();
+                    BsAutori.DataSource = DsAutori.Tables[0].DefaultView;
+                    dataGridView1.DataSource = BsAutori;
+                }
+                catch { }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
