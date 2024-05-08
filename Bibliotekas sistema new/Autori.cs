@@ -59,19 +59,39 @@ namespace Bibliotekas_sistema_new
                 dataGridView1.Columns["surname"].HeaderText = "Uzvārds";
                 dataGridView1.Columns["info"].HeaderText = "Info par autoru";
             }
-            catch { }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                try
+                {
+                    SqlCon.Close();
+                }
+                catch { }
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public string metode, id;
+        int numRows;
+
+        private void button2_Click(object sender, EventArgs e) //pievienot
         {
-            Autori_piev autori_piev = new Autori_piev();
+            metode = "pievienot";
+
+            numRows = dataGridView1.Rows.Count;
+
+            Autori_piev autori_piev = new Autori_piev(metode, id, numRows);
             autori_piev.Show();
             this.Hide();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //rediģēt
         {
-            Autori_piev autori_piev = new Autori_piev();
+            metode = "rediget";
+
+            numRows = dataGridView1.Rows.Count;
+
+            id = dataGridView1.CurrentRow.Cells["author_ID"].Value.ToString();
+            Autori_piev autori_piev = new Autori_piev(metode, id, numRows);
             autori_piev.Show();
             this.Hide();
         }

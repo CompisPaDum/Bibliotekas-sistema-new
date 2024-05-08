@@ -68,7 +68,7 @@ namespace Bibliotekas_sistema_new
                     SqlCom.CommandText = SqlUpdateRecord;
                     SqlCom.ExecuteNonQuery();
                     SqlCon.Close();
-                    MessageBox.Show("lietotāja izmaiņas pievienotas datubāzei.");
+                    MessageBox.Show("Lietotāja izmaiņas pievienotas datubāzei.");
                 }
                 catch { }
 
@@ -76,7 +76,6 @@ namespace Bibliotekas_sistema_new
                 lietotaji.Show();
                 this.Hide();
             }
-
         }
 
         private void button6_Click(object sender, EventArgs e)

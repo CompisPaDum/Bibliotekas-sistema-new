@@ -142,6 +142,7 @@
             this.Name = "Autori_piev";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Autori_piev";
+            this.Load += new System.EventHandler(this.Autori_piev_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

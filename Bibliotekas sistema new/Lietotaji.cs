@@ -82,7 +82,6 @@ namespace Bibliotekas_sistema_new
             Lietotaji_tabula liettabula = new Lietotaji_tabula(metode, id);
             liettabula.Show();
             this.Hide();
-            //fill textboxes with seleced values
         }
 
         private void button5_Click(object sender, EventArgs e) //dzēst
