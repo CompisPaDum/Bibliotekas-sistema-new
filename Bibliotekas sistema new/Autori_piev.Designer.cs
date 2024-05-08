@@ -113,6 +113,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Pievienot ierakstu";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button6
             // 
@@ -122,6 +123,7 @@
             this.button6.Size = new System.Drawing.Size(82, 79);
             this.button6.TabIndex = 18;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Autori_piev
             // 

@@ -64,12 +64,16 @@ namespace Bibliotekas_sistema_new
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //load form_autori_piev
+            Autori_piev autori_piev = new Autori_piev();
+            autori_piev.Show();
+            this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //load form_autori_piev ar rediģēšanu
+            Autori_piev autori_piev = new Autori_piev();
+            autori_piev.Show();
+            this.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)

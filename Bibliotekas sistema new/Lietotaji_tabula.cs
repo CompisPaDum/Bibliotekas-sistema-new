@@ -79,6 +79,13 @@ namespace Bibliotekas_sistema_new
 
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Lietotaji lietotaji = new Lietotaji();
+            lietotaji.Show();
+            this.Hide();
+        }
+
         public Lietotaji_tabula(string m, string i)
         {
             InitializeComponent();

@@ -17,5 +17,17 @@ namespace Bibliotekas_sistema_new
             InitializeComponent();
             this.Location = new Point(400, 200);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e) //back
+        {
+            Autori autori = new Autori();
+            autori.Show();
+            this.Hide();
+        }
     }
 }
